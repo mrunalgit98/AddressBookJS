@@ -32,9 +32,15 @@ class Contact{
         else throw "incorrect phone number"
     }
 }
+var address=new Array()
     try {
         let contact1 =new Contact("Mrunal","mumbai","9892820223")
-        console.log(contact1);
+        let contact2 =new Contact("Kunal","mumbai","9892820223")
+       address.push(contact1);
+       address.push(contact2);
     } catch (error) {
         console.log(error);
+    }
+    for(let i=0;i<=address.length;i++){
+        console.log(address[i]);
     }

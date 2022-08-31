@@ -89,19 +89,19 @@ function findContact(fname, lname) {
     }
 }
 
-let del=(Name)=>{
-    let contactToEdit,index;
-    for(let i=0;i<addressBookArray.length;i++){
-        if(addressBookArray[i].firstName==Name)
-        contactToEdit=addressBookArray[i];
-        index=addressBookArray.indexOf(contactToEdit);
-        console.log(index);
-        console.log("delete");
-    }
-    if(index!=1){
-        addressBookArray.splice(index,1);
-    }
-}
+// let del=(Name)=>{
+//     let contactToEdit,index;
+//     for(let i=0;i<addressBookArray.length;i++){
+//         if(addressBookArray[i].firstName==Name)
+//         contactToEdit=addressBookArray[i];
+//         index=addressBookArray.indexOf(contactToEdit);
+//         console.log(index);
+//         console.log("delete");
+//     }
+//     if(index!=1){
+//         addressBookArray.splice(index,1);
+//     }
+// }
 
 
 
@@ -111,8 +111,15 @@ let del=(Name)=>{
 //     console.log(addressBookArray[i])
 // }
 
-let name =prompt("enter name to delete");
-del(name);
-for(let i=0;i<addressBookArray.length;i++){
-    console.log(addressBookArray[i]);
+// let name =prompt("enter name to delete");
+// del(name);
+// for(let i=0;i<addressBookArray.length;i++){
+//     console.log(addressBookArray[i]);
+// }
+
+let count=()=>{
+    console.log("number of contact");
+    console.log(addressBookArray.length);
 }
+count();
+

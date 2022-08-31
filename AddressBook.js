@@ -117,17 +117,23 @@ function findContact(fname, lname) {
 //     console.log(addressBookArray[i]);
 // }
 
-let count=()=>{
-    console.log("number of contact");
-    console.log(addressBookArray.length);
+// let count=()=>{
+//     console.log("number of contact");
+//     console.log(addressBookArray.length);
+// }
+// count();
+// let duplicate=(firstName,city,phoneNo)=>{
+//     if(addressBookArray.some(contacts=>contacts.firstName==firstName)){
+//         console.log("contact already exist");
+//     }
+//     else
+//     addressBookArray.push(new Contact(firstName,city,phoneNo));
+// }
+// duplicate("Mrunal");
+
+let search=(search)=>{
+    let contact=addressBookArray.filter(contact=>contact.city==search);
+    console.log(contact);
 }
-count();
-let duplicate=(firstName,city,phoneNo)=>{
-    if(addressBookArray.some(contacts=>contacts.firstName==firstName)){
-        console.log("contact already exist");
-    }
-    else
-    addressBookArray.push(new Contact(firstName,city,phoneNo));
-}
-duplicate("Mrunal1");
+search("thane");
 

@@ -88,8 +88,31 @@ function findContact(fname, lname) {
         }
     }
 }
-let param1 = prompt("Enter the First Name:  ")
-findContact(param1);
-for (let i = 0; i < addressBookArray.length; i++) {
-    console.log(addressBookArray[i])
+
+let del=(Name)=>{
+    let contactToEdit,index;
+    for(let i=0;i<addressBookArray.length;i++){
+        if(addressBookArray[i].firstName==Name)
+        contactToEdit=addressBookArray[i];
+        index=addressBookArray.indexOf(contactToEdit);
+        console.log(index);
+        console.log("delete");
+    }
+    if(index!=1){
+        addressBookArray.splice(index,1);
+    }
+}
+
+
+
+// let param1 = prompt("Enter the First Name to edit  ")
+// findContact(param1);
+// for (let i = 0; i < addressBookArray.length; i++) {
+//     console.log(addressBookArray[i])
+// }
+
+let name =prompt("enter name to delete");
+del(name);
+for(let i=0;i<addressBookArray.length;i++){
+    console.log(addressBookArray[i]);
 }

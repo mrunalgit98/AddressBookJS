@@ -1,46 +1,95 @@
-class Contact{
-    constructor(...params){
-        this.name=params[0];
-        this.city=params[1];
-        this.phone=params[2];
+console.log("Welcome to The Address Book JS Program ")
+class Contact {
+    constructor(...params) {
+        this.firstName = params[0];
+        this.city = params[1];
+        this.phoneNo = params[2];
     }
-    get name(){
-        return this.name1
+
+    get firstName() {
+        return this._firstName
     }
-    set name(name){
-        let nameregex=RegExp('[A-Z]{1}[a-z]{2}')
-        if(nameregex.test(name))
-        this.name1=name;
-        else throw "incorect name";
+    set firstName(firstName) {
+        let nameRegex = RegExp('^[A-Z]{1}[a-zA-Z]{2,}$')
+        if (nameRegex.test(firstName))
+            this._firstName = firstName;
+        else throw "Incorrect First Name";
     }
-    get city(){
-        return this.city1
-    }   
-    set city(city){
-        let regex=RegExp('[a-zA-Z0-9]')
-        if(regex.test(city))
-        this.city1=city
-        else throw "incorrect city"
+ 
+    get city() { return this._city }
+    set city(city) {
+        let regex = RegExp('[a-zA-Z0-9 ,]{4,}')
+        if (regex.test(city))
+            this._city = city
+        else throw "Incorrect City"
     }
-    get phone(){
-        return this.phone1;
+    
+    get phoneNo() { return this._phoneNo }
+    set phoneNo(phoneNo) {
+        let regex = RegExp('[0-9]{10}')
+        if (regex.test(phoneNo))
+            this._phoneNo = phoneNo
+        else throw "Incorrect Phone Number"
     }
-    set phone(phone){
-        let regex=RegExp('[0-9]{10}')
-        if(regex.test(phone))
-        this.phone1=phone
-        else throw "incorrect phone number"
+ 
+
+
+}
+var addressBookArray = new Array()
+try {
+    let contact1 = new Contact("Mrunal","mumbai","9892820223");
+    let contact2 = new Contact("Kunal","thane","9892820223");
+    addressBookArray.push(contact1);
+    addressBookArray.push(contact2);
+
+}
+catch (e) {
+    console.log(e)
+}
+for (let i = 0; i < addressBookArray.length; i++) {
+    console.log(addressBookArray[i])
+}
+const prompt = require('prompt-sync')();
+
+
+function findContact(fname, lname) {
+    let contactToEdit;
+    for (let i = 0; i < addressBookArray.length; i++) {
+        if (addressBookArray[i].firstName === fname)
+            contactToEdit = addressBookArray[i]
+    }
+
+    if (contactToEdit == null)
+        console.log("No Contact Found To Edit")
+    else {
+        let input = 1;
+        while (input != 4) {
+            console.log("1. Edit First Name\n2. Edit City \n3. Phone no \n4. Exit");
+            input = prompt("Enter Your Choice:  ")
+            input = parseInt(input)
+            switch (input) {
+                case 1:
+                    let fname = prompt("Enter the first Name: ")
+                    contactToEdit.firstName = fname
+                    break
+                case 2:
+                    let city_edit = prompt("Enter the city: ")
+                    contactToEdit.city = city_edit
+                    break
+                case 3:
+                    let phone_edit = prompt("Enter the phone number: ")
+                    contactToEdit.phoneNo = phone_edit
+                    case 4:
+                        break;
+  
+                default:
+                    console.log("Wrong Input")
+            }
+        }
     }
 }
-var address=new Array()
-    try {
-        let contact1 =new Contact("Mrunal","mumbai","9892820223")
-        let contact2 =new Contact("Kunal","mumbai","9892820223")
-       address.push(contact1);
-       address.push(contact2);
-    } catch (error) {
-        console.log(error);
-    }
-    for(let i=0;i<=address.length;i++){
-        console.log(address[i]);
-    }
+let param1 = prompt("Enter the First Name:  ")
+findContact(param1);
+for (let i = 0; i < addressBookArray.length; i++) {
+    console.log(addressBookArray[i])
+}
